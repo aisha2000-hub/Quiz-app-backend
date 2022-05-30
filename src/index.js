@@ -1,6 +1,3 @@
-// const express = require("express");
-// const app = express();
-// const port = 3000;
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -11,7 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 3000;
-// const connect = process.env.DB_LOCALCONNECTION;
 const url = process.env.DB_REMOTTE;
 
 const quizSchema = new mongoose.Schema({
@@ -53,9 +49,6 @@ app.post("/addPlayer", async (req, res) => {
   }
 });
 
-// app.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// });
 mongoose.connect(url).then(() => {
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
